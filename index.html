@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+		<style type="text/css">
+			body {
+				background-color: #ddd;
+			}
+			.wrapper {
+				margin: 0 auto;
+				width: 100%;
+				max-width: 1280px;
+				position: relative;
+			}
+			.hidden {
+				display: none;
+				visibility: hidden;
+			}
+			.parallax-items {
+				position: absolute;
+				zoom: 1;
+				top: 0;
+				left: 0;
+				z-index: 0;
+				width: 100%;
+			}
+			.parallax-items .parallax {
+				background-repeat: no-repeat;
+				position: absolute;
+			}
+			.parallax-items #necklace {
+				background-image: url(img/parallax/necklace.jpg);
+				width: 930px;
+				height: 556px;
+			}
+			.parallax-items #bracelet {
+				background-image: url(img/parallax/bracelet.jpg);
+				width: 758px;
+				height: 925px;
+			}
+			.parallax-items #scarf {
+				background-image: url(img/parallax/scarf.png);
+				top: 1400px;
+				width: 555px;
+				height: 621px;
+			}
+			.parallax-items #quote {
+				background-image: url(img/parallax/quote.jpg);
+				width: 780px;
+				height: 431px;
+			}
+			.parallax-items #flower {
+				background-image: url(img/parallax/flower.jpg);
+			}
+			.parallax-items #bag {
+				background-image: url(img/parallax/bag.jpg);
+				width: 797px;
+				height: 715px;
+			}
+			.parallax-items #scarf-big {
+				background-image: url(img/parallax/scarf-big.png);
+				left: 30%;
+				width: 854px;
+				height: 1488px;
+			}
+			#shoe {
+				position: absolute;
+				top: 2800px;
+				zoom: 1;
+				z-index: 0;
+				left: 50%;
+				margin-left: -500px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class='parallax-items'>
+			<div id='necklace' class='parallax'></div>
+			<div id='bracelet' class='parallax'></div>
+			<div id='quote' class='parallax'></div>
+			<div id='scarf' class='parallax'></div>
+			<div id='bag' class='parallax'></div>
+			<div id='scarf-big' class='parallax'></div>
+		</div>
+		<div id='shoe'>
+			<img src='img/shoe/sa1.jpg' class=''/>
+			<img src='img/shoe/sa2.jpg' class='hidden'/>
+			<img src='img/shoe/sa3.jpg' class='hidden'/>
+			<img src='img/shoe/sa4.jpg' class='hidden'/>
+			<img src='img/shoe/sa5.jpg' class='hidden'/>
+			<img src='img/shoe/sa6.jpg' class='hidden'/>
+			<img src='img/shoe/sa7.jpg' class='hidden'/>
+			<img src='img/shoe/sa8.jpg' class='hidden'/>
+		</div>
+
+		<script src="js/lib/requestAnimationFrame.js"></script>
+		<script src="js/lib/Tween.js"></script>
+		<script src="js/lib/Animator.js"></script>
+		<script src="js/Animator.example.js"></script>
+
+	</body>
+
+</html>
+
+
