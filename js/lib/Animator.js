@@ -166,7 +166,7 @@ window.Animator = (function(animation){
 		requestAnimationFrame( animationLoop );
 		if (Math.floor(scrollTopTweened) !== Math.floor(scrollTop)) {
 			// smooth out scrolling action
-			scrollTopTweened += settings.tweenSpeed * (scrollTop - scrollTopTweened);
+			scrollTopTweened += Math.round(settings.tweenSpeed * (scrollTop - scrollTopTweened) * 100) / 100;
 			// run through all animators
 			for (var i in subscribers) {
 				var anim = subscribers[i];
@@ -195,7 +195,10 @@ window.Animator = (function(animation){
  */
 	var render = function( anim ) {
 		// figure out where we are within the scroll
-		var progress = (anim.startAt - scrollTopTweened) / (anim.startAt - anim.endAt);
+		var progress = Math.round((anim.startAt - scrollTopTweened) / (anim.startAt - anim.endAt) * 100) / 100;
+
+
+		console.log ( 'progress', progress, scrollTopTweened );
 
 		var properties = {};
 
@@ -204,7 +207,9 @@ window.Animator = (function(animation){
 			for ( i = 1; i < anim.onKeyframes.length; i++ ) {
 				var keyframe = anim.onKeyframes[ i ],
 					lastkeyframe = anim.onKeyframes[ i - 1 ],
-					keyframeProgress = ( lastkeyframe.position - progress ) / ( lastkeyframe.position - keyframe.position );
+					keyframeProgress = Math.round(( lastkeyframe.position - progress ) / ( lastkeyframe.position - keyframe.position ) * 100) / 100;
+
+					// console.log ( 'keyframeProgress', keyframeProgress );
 
 				if ( keyframeProgress > 0 && keyframeProgress <= 1 ) {
 					// if something is happening during the course of the animator
@@ -214,7 +219,8 @@ window.Animator = (function(animation){
 
 					// css attributes to adjust
 					for ( property in keyframe.properties ) {
-						properties[ property ] = Math.round( calc ( 'getTweenedValue', {start:lastkeyframe.properties[property], end:keyframe.properties[property], currentTime: keyframeProgress, totalTime:1, tweener:keyframe.ease} ) );
+						var t = Math.round( calc ( 'getTweenedValue', {start:lastkeyframe.properties[property], end:keyframe.properties[property], currentTime: keyframeProgress, totalTime:1, tweener:keyframe.ease} ) );
+						properties[ property ] = t;
 					}
 				}
 			}
@@ -472,7 +478,8 @@ window.Animator = (function(animation){
 	root.getTweenedValue = function( o ) {
 		// start, end, currentTime, totalTime, tweener
 		var delta = o.end - o.start;
-		var percentComplete = o.currentTime/o.totalTime;
+		var percentComplete = (o.currentTime/o.totalTime);
+		console.log ( 'percentComplete', percentComplete, o.currentTime, o.totalTime );
 		if (!o.tweener) o.tweener = TWEEN.Easing.Linear.EaseNone;
 		return o.tweener(percentComplete) * delta + o.start
 	};

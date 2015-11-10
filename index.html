@@ -33,48 +33,25 @@
 				background-repeat: no-repeat;
 				position: absolute;
 			}
-			.parallax-items #necklace {
-				background-image: url(img/parallax/necklace.jpg);
-				width: 930px;
-				height: 556px;
-			}
 			.parallax-items #bracelet {
 				background-image: url(img/parallax/bracelet.jpg);
 				width: 758px;
 				height: 925px;
+				top: 1000px;
+			    right: 0;
+			    opacity: 0;
 			}
-			.parallax-items #scarf {
-				background-image: url(img/parallax/scarf.png);
-				top: 1400px;
-				width: 555px;
-				height: 621px;
+
+			#gearvr-animate {
+				top: 800px;
 			}
-			.parallax-items #quote {
-				background-image: url(img/parallax/quote.jpg);
-				width: 780px;
-				height: 431px;
+
+			#gearvr-screen-01 {
+				top: 800px;
 			}
-			.parallax-items #flower {
-				background-image: url(img/parallax/flower.jpg);
-			}
-			.parallax-items #bag {
-				background-image: url(img/parallax/bag.jpg);
-				width: 797px;
-				height: 715px;
-			}
-			.parallax-items #scarf-big {
-				background-image: url(img/parallax/scarf-big.png);
-				left: 30%;
-				width: 854px;
-				height: 1488px;
-			}
-			#shoe {
-				position: absolute;
-				top: 2800px;
-				zoom: 1;
-				z-index: 0;
-				left: 50%;
-				margin-left: -500px;
+
+			#gearvr-screen-02 {
+				top: 800px;
 			}
 		</style>
 
@@ -83,22 +60,16 @@
 	<body>
 
 		<div class='parallax-items'>
-			<div id='necklace' class='parallax'></div>
 			<div id='bracelet' class='parallax'></div>
-			<div id='quote' class='parallax'></div>
-			<div id='scarf' class='parallax'></div>
-			<div id='bag' class='parallax'></div>
-			<div id='scarf-big' class='parallax'></div>
-		</div>
-		<div id='shoe'>
-			<img src='img/shoe/sa1.jpg' class=''/>
-			<img src='img/shoe/sa2.jpg' class='hidden'/>
-			<img src='img/shoe/sa3.jpg' class='hidden'/>
-			<img src='img/shoe/sa4.jpg' class='hidden'/>
-			<img src='img/shoe/sa5.jpg' class='hidden'/>
-			<img src='img/shoe/sa6.jpg' class='hidden'/>
-			<img src='img/shoe/sa7.jpg' class='hidden'/>
-			<img src='img/shoe/sa8.jpg' class='hidden'/>
+			<div id='gearvr-animate' class='parallax'>
+				<img src="img/GearVR_desktop_unlock_step2.png"/>
+			</div>
+			<div id='gearvr-screen-01' class='parallax'>
+				<img src="img/GearVR_desktop_unlock_step1tt.png"/>
+			</div>
+			<div id='gearvr-screen-02' class='parallax'>
+				<img src="img/GearVR_desktop_unlock_step3_v2.png"/>
+			</div>
 		</div>
 
 		<script src="js/lib/requestAnimationFrame.js"></script>
@@ -109,5 +80,4 @@
 	</body>
 
 </html>
-
 
